@@ -1,0 +1,9 @@
+<div style="display: flex; align-items: center">
+  <p style="padding: 10px;"><%= todo_item.content %></p>
+  <%= link_to "Delete", todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: "Are you sure?" }, style: 'padding: 10px;' %>
+  <% if todo_item.completed? %>
+    Completed
+  <% else %>
+    <%= link_to "Mark as Complete", complete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch, style: 'padding: 10px;' %>
+  <% end %>
+</div>
